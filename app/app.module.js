@@ -1,0 +1,1 @@
+var myApp = angular.module('TopicDependencies', ['ui.router']);

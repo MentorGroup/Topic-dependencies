@@ -15,7 +15,7 @@ var gulp = require('gulp')
 gulp.task('html', function(){
   return gulp.src(html)
     // .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('./public/template'));
+    .pipe(gulp.dest('./public'));
 });
 
 gulp.task('styles', function(){

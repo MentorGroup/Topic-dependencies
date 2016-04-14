@@ -5,7 +5,7 @@ angular.module('TopicDependencies')
 
     .state('home', {
       url: '/',
-      templateUrl: 'app/template/components/home/homeView.html',
+      templateUrl: 'app/components/home/homeView.html',
       controller: 'homeCtrl'
     });
   });

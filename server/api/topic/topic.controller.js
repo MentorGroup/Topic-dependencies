@@ -1,16 +1,40 @@
 var Topics = require('./topic.model');
 
 module.exports = {
-  createLesson: function(req, res){
-    //do stuff
+  createLesson (req, res) {
+      new Topic(req.body).save((err, data) => {
+          if (err) {
+              res.status(500).send(err);
+          } else {
+              res.status(200).send(data);
+          }
+      })
   },
-  getLesson: function(req, res){
-    //do stuff
+  getLesson (req, res){
+      Topic.findById(req.params.title, (err, topic) => {
+          if (err) {
+              res.status(500).send(err);
+          } else {
+              res.status(200).send(topic);
+          }
+      })
   },
-  putLesson: function(req, res){
-    //do stuff
+  putLesson (req, res){
+      Topic.findByIdAndUpdate(req.params.title, req.body, {new: true}, (err, topic) => {
+          if (err) {
+              res.status(500).send(err);
+          } else {
+              res.status(200).send(topic);
+          }
+      })
   },
-  deleteLesson: function(req, res){
-    //do stuff
+  deleteLesson (req, res){
+      Topic.findByIdAndRemove(req.params.title, (err, deletedTopic) => {
+          if (err) {
+              res.status(500).send(err);
+          } else {
+              res.status(200).send(deletedTopic);
+          }
+      })
   }
 };

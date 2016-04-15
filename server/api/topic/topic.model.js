@@ -3,8 +3,8 @@ var mongoose = require('mongoose'),
 
 var TopicSchema = new Schema({
   title: String,
-  parentNodes: [String], //ref itself?
-  childrenNodes: [String], //ref itself?
+  parentNodes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Topics'}],
+  childrenNodes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Topics'}],
   references: [String] //a string of links
 });
 
